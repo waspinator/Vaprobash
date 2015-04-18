@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # Config Github Settings
-github_username = "fideloper"
+github_username = "waspinator"
 github_repo     = "Vaprobash"
 github_branch   = "1.4.0"
 github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
@@ -64,6 +64,7 @@ public_folder         = "/vagrant"
 laravel_root_folder   = "/vagrant/laravel" # Where to install Laravel. Will `composer install` if a composer.json file exists
 laravel_version       = "latest-stable" # If you need a specific version of Laravel, set it here
 symfony_root_folder   = "/vagrant/symfony" # Where to install Symfony.
+cakephp_root_folder   = "vagrant/cakephp" # Where to install CakePHP. Will `composer install` if a composer.json file exists
 
 nodejs_version        = "latest"   # By default "latest" will equal the latest stable version
 nodejs_packages       = [          # List any global NodeJS packages that you want to install
@@ -305,6 +306,9 @@ Vagrant.configure("2") do |config|
 
   # Provision Symfony
   # config.vm.provision "shell", path: "#{github_url}/scripts/symfony.sh", privileged: false, args: [server_ip, symfony_root_folder, public_folder]
+
+  # Provision CakePHP
+  # config.vm.provision "shell", path: "#{github_url}/scripts/cakephp.sh", privileged: false, args: [server_ip, cakephp_root_folder, public_folder]
 
   # Install Screen
   # config.vm.provision "shell", path: "#{github_url}/scripts/screen.sh"
